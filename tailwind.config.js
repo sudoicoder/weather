@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./components/**/*.tsx", "./app/**/*.tsx"],
+  content: ["./src/components/**/*.tsx", "./src/app/**/*.tsx"],
   darkMode: ["class"],
   plugins: [require("tailwindcss-animate")],
   theme: {
