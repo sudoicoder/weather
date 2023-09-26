@@ -1,10 +1,8 @@
 import Image from "next/image"
 
-import type { Forecast } from "@/entities/Weather"
+import type Weather from "@/entities/Weather"
 
-import formatDate from "@/utilities/formatDate"
 import formatTemperature from "@/utilities/formatTemperature"
-import getWeatherConditionIcon from "@/utilities/getWeatherConditionIcon"
 
 import Card from "./ui/Card"
 import Progress from "./ui/Progress"
@@ -14,14 +12,14 @@ export default function DailyForecast({ dailyForecasts }: DailyForecastProps) {
     <Card.Container className="flex flex-col gap-5 p-5 border rounded">
       {dailyForecasts.map(forecast => (
         <div
-          key={formatDate(forecast.date, "dd-MM-yyyy")}
+          key={forecast.date}
           className="flex items-center gap-3"
         >
           <Image
             width={32}
             height={32}
-            src={getWeatherConditionIcon(forecast.condition)}
-            alt={forecast.condition}
+            src={forecast.condition.icon}
+            alt={forecast.condition.description}
           />
           <div className="flex gap-1.5 items-center">
             <div>{formatTemperature(forecast.minimumTemperature)}</div>
@@ -35,5 +33,5 @@ export default function DailyForecast({ dailyForecasts }: DailyForecastProps) {
 }
 
 interface DailyForecastProps {
-  dailyForecasts: Forecast[]
+  dailyForecasts: Weather["dailyForecasts"]
 }
