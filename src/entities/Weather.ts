@@ -3,7 +3,12 @@ import { addDays, addHours } from "date-fns"
 import type { GeoLocation } from "./GeoLocation"
 import { devGeoLocation } from "./GeoLocation"
 
-export type WeatherCondition = "cloudy" | "rainy" | "sunny" | "thunderstorm"
+export type WeatherCondition =
+  | "cloudy"
+  | "meteor"
+  | "rainy"
+  | "sunny"
+  | "thunderstorm"
 
 export interface CurrentWeather {
   condition: WeatherCondition
