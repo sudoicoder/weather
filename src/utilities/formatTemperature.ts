@@ -6,7 +6,9 @@ export default function formatTemperature(
   temperature: number,
   temperatureUnit: TemperatureUnit = "celsius"
 ) {
-  return `${temperature} ${getTemperatureUnitSymbol(temperatureUnit)}`
+  return `${temperature.toFixed(0)} ${getTemperatureUnitSymbol(
+    temperatureUnit
+  )}`
 }
 
 function getTemperatureUnitSymbol(temperatureUnit: TemperatureUnit) {

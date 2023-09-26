@@ -10,7 +10,9 @@ export default async function Home() {
     <main className="flex flex-col items-center gap-5 my-5">
       <div className="text-3xl">{weather.location.name}</div>
       <WeatherCard currentWeather={weather.currentWeather} />
-      <HourlyForecast hourlyForecasts={weather.hourlyForecasts} />
+      <div className="max-w-md">
+        <HourlyForecast hourlyForecasts={weather.hourlyForecasts} />
+      </div>
       <DailyForecast dailyForecasts={weather.dailyForecasts} />
     </main>
   )

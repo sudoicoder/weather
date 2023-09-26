@@ -10,23 +10,22 @@ export default function HourlyForecast({
   hourlyForecasts,
 }: HourlyForecastProps) {
   return (
-    <Card.Container>
-      <Card.Content className="flex border p-5 rounded gap-5">
-        {hourlyForecasts.map(forecast => (
-          <div
-            key={forecast.time}
-            className="flex flex-col items-center"
-          >
-            <Image
-              width={32}
-              height={32}
-              src={forecast.condition.icon}
-              alt={forecast.condition.description}
-            />
-            <div>{formatTemperature(forecast.predictedTemperature)}</div>
-          </div>
-        ))}
-      </Card.Content>
+    <Card.Container className="flex flex-col gap-5 p-5 border rounded">
+      {hourlyForecasts.map(forecast => (
+        <div
+          key={forecast.time}
+          className="flex items-center gap-3"
+        >
+          <Image
+            width={48}
+            height={48}
+            src={forecast.condition.icon}
+            alt={forecast.condition.description}
+          />
+
+          <div>{formatTemperature(forecast.predictedTemperature)}</div>
+        </div>
+      ))}
     </Card.Container>
   )
 }

@@ -16,8 +16,8 @@ export default function DailyForecast({ dailyForecasts }: DailyForecastProps) {
           className="flex items-center gap-3"
         >
           <Image
-            width={32}
-            height={32}
+            width={48}
+            height={48}
             src={forecast.condition.icon}
             alt={forecast.condition.description}
           />
