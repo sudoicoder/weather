@@ -1,20 +1,20 @@
 import type { GeoLocation } from "./GeoLocation"
 import { devGeoLocation } from "./GeoLocation"
 
-export interface WeatherData {
+export interface Weather {
   currentWeather: {
     temperature: number
   }
   geoLocation: GeoLocation
 }
 
-export const devWeatherData: WeatherData = {
+export const devWeather: Weather = {
   currentWeather: {
     temperature: 30,
   },
   geoLocation: devGeoLocation,
 }
 
-export function getWeatherData() {
-  return devWeatherData
+export function getWeather() {
+  return devWeather
 }
