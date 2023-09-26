@@ -103,6 +103,6 @@ const devWeather: Weather = {
   hourlyForecasts: devHourlyForecasts,
 }
 
-export function getWeather() {
+export async function getWeather() {
   return devWeather
 }

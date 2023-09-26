@@ -4,8 +4,8 @@ import DailyForecast from "@/components/DailyForecast"
 import HourlyForecast from "@/components/HourlyForecast"
 import WeatherCard from "@/components/WeatherCard"
 
-export default function Home() {
-  const weather = getWeather()
+export default async function Home() {
+  const weather = await getWeather()
   return (
     <main className="flex flex-col items-center gap-5 my-5">
       <WeatherCard
