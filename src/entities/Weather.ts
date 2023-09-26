@@ -3,7 +3,7 @@ import { addDays, addHours } from "date-fns"
 import type { GeoLocation } from "./GeoLocation"
 import { devGeoLocation } from "./GeoLocation"
 
-export type WeatherCondition = "cloudy" | "rainy" | "sunny"
+export type WeatherCondition = "cloudy" | "rainy" | "sunny" | "thunderstorm"
 
 export interface CurrentWeather {
   condition: WeatherCondition
@@ -57,10 +57,10 @@ const devDailyForecasts: Forecast[] = [
     minimumTemperature: 26,
   },
   {
-    condition: "sunny",
+    condition: "thunderstorm",
     date: addDays(devDate, 4),
-    maximumTemperature: 34,
-    minimumTemperature: 26,
+    maximumTemperature: 25,
+    minimumTemperature: 15,
   },
 ]
 
