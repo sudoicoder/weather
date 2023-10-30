@@ -8,7 +8,7 @@ import { getWeather } from "@/services/getWeather"
 
 export default async function WeatherDisplay({
   params: geocoordinates,
-}: HomeProps) {
+}: WeatherDisplayProps) {
   const weather = await getWeather(geocoordinates)
   return (
     <div className="flex flex-col items-center gap-5 my-5">
@@ -22,6 +22,6 @@ export default async function WeatherDisplay({
   )
 }
 
-interface HomeProps {
+interface WeatherDisplayProps {
   params: Geocoordinates
 }
