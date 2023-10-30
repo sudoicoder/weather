@@ -1,4 +1,4 @@
-import * as React from "react"
+import { forwardRef } from "react"
 
 import cn from "@/utilities/shadcn"
 
@@ -13,19 +13,18 @@ const Card = ({ className, ...props }: React.ComponentProps<"div">) => (
 )
 Card.displayName = "CardContainer"
 
-const Header = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
-    {...props}
-  />
-))
+const Header = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("flex flex-col space-y-1.5 p-6", className)}
+      {...props}
+    />
+  )
+)
 Header.displayName = "CardHeader"
 
-const Title = React.forwardRef<
+const Title = forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
@@ -40,7 +39,7 @@ const Title = React.forwardRef<
 ))
 Title.displayName = "CardTitle"
 
-const Description = React.forwardRef<
+const Description = forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
@@ -52,7 +51,7 @@ const Description = React.forwardRef<
 ))
 Description.displayName = "CardDescription"
 
-const Content = React.forwardRef<
+const Content = forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
@@ -64,16 +63,15 @@ const Content = React.forwardRef<
 ))
 Content.displayName = "CardContent"
 
-const Footer = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
-    {...props}
-  />
-))
+const Footer = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("flex items-center p-6 pt-0", className)}
+      {...props}
+    />
+  )
+)
 Footer.displayName = "CardFooter"
 
 Card.Header = Header
