@@ -1,21 +1,25 @@
+import Location from "@/entities/Location"
 import type Weather from "@/entities/Weather"
 
 import getEnv from "@/utilities/getEnv"
 
-function getUrl({
+function createForecastUrl({
   days,
   latitude,
   longitude,
-}: {
+}: Omit<Location, "name"> & {
   days: number
-  latitude: number
-  longitude: number
 }) {
-  const url = new URL(getEnv("WEATHER_API_BASE_URL"))
-  url.searchParams.set("key", getEnv("WEATHER_API_KEY"))
+  const url = new URL("forecast.json", getEnv("WEATHER_API_BASE_URL"))
   url.searchParams.set("q", `${latitude},${longitude}`)
   url.searchParams.set("days", `${days}`)
   return url
+}
+
+function createForecastHeaders() {
+  const headers = new Headers()
+  headers.append("key", getEnv("WEATHER_API_KEY"))
+  return headers
 }
 
 interface ConditionResponse {
@@ -51,19 +55,23 @@ interface WeatherApiResponse {
   }
 }
 
-export default async function getWeather(): Promise<Weather> {
-  const url = getUrl({ days: 7, latitude: 11.9416, longitude: 79.8083 })
-  const res = (await fetch(url).then(r => r.json())) as WeatherApiResponse
+export default async function getWeather(
+  location: Omit<Location, "name">
+): Promise<Weather> {
+  const url = createForecastUrl({ days: 7, ...location })
+  const headers = createForecastHeaders()
+  const response = await fetch(url, { headers })
+  const json = (await response.json()) as WeatherApiResponse
   return {
     currentWeather: {
       condition: {
-        description: res.current.condition.text,
-        icon: `https:${res.current.condition.icon}`,
+        description: json.current.condition.text,
+        icon: `https:${json.current.condition.icon}`,
       },
-      currentTemperature: res.current.temp_c,
-      timestamp: res.current.last_updated,
+      currentTemperature: json.current.temp_c,
+      timestamp: json.current.last_updated,
     },
-    dailyForecasts: res.forecast.forecastday.slice(1).map(fc => ({
+    dailyForecasts: json.forecast.forecastday.slice(1).map(fc => ({
       condition: {
         description: fc.day.condition.text,
         icon: `https:${fc.day.condition.icon}`,
@@ -72,7 +80,7 @@ export default async function getWeather(): Promise<Weather> {
       maximumTemperature: fc.day.maxtemp_c,
       minimumTemperature: fc.day.mintemp_c,
     })),
-    hourlyForecasts: res.forecast.forecastday[0].hour.map(fc => ({
+    hourlyForecasts: json.forecast.forecastday[0].hour.map(fc => ({
       condition: {
         description: fc.condition.text,
         icon: `https:${fc.condition.icon}`,
@@ -81,9 +89,9 @@ export default async function getWeather(): Promise<Weather> {
       time: fc.time,
     })),
     location: {
-      latitude: res.location.lat,
-      longitute: res.location.lon,
-      name: res.location.name,
+      latitude: json.location.lat,
+      longitude: json.location.lon,
+      name: json.location.name,
     },
   }
 }

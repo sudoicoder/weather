@@ -1,8 +1,4 @@
-interface Location {
-  latitude: number
-  longitute: number
-  name: string
-}
+import type Location from "./Location"
 
 interface Condition {
   description: string
