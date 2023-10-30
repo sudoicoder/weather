@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import type Weather from "@/entities/Weather"
+import type { Weather } from "@/entities/Weather"
 
 import formatTemperature from "@/utilities/formatTemperature"
 

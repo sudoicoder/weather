@@ -1,5 +1,5 @@
-export default interface Location {
-  latitude: number
-  longitude: number
+import type { Geocoordinates } from "./Geocoordinates"
+
+export interface Location extends Geocoordinates {
   name: string
 }

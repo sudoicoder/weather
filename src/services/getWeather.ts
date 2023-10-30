@@ -1,5 +1,5 @@
-import Location from "@/entities/Location"
-import type Weather from "@/entities/Weather"
+import type { Geocoordinates } from "@/entities/Geocoordinates"
+import type { Weather } from "@/entities/Weather"
 
 import getEnv from "@/utilities/getEnv"
 
@@ -7,7 +7,7 @@ function createForecastUrl({
   days,
   latitude,
   longitude,
-}: Omit<Location, "name"> & {
+}: Geocoordinates & {
   days: number
 }) {
   const url = new URL("forecast.json", getEnv("WEATHER_API_BASE_URL"))
@@ -56,9 +56,9 @@ interface WeatherApiResponse {
 }
 
 export default async function getWeather(
-  location: Omit<Location, "name">
+  geocoordinates: Geocoordinates
 ): Promise<Weather> {
-  const url = createForecastUrl({ days: 7, ...location })
+  const url = createForecastUrl({ days: 7, ...geocoordinates })
   const headers = createForecastHeaders()
   const response = await fetch(url, { headers })
   const json = (await response.json()) as WeatherApiResponse

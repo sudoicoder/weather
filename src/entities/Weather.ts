@@ -1,4 +1,4 @@
-import type Location from "./Location"
+import type { Location } from "./Location"
 
 interface Condition {
   description: string
@@ -24,7 +24,7 @@ interface HourlyForecast {
   time: string
 }
 
-export default interface Weather {
+export interface Weather {
   currentWeather: CurrentWeather
   dailyForecasts: DailyForecast[]
   hourlyForecasts: HourlyForecast[]
