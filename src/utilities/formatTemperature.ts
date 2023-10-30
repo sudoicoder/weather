@@ -1,4 +1,4 @@
-export type TemperatureUnit = "celsius" | "fahrenheit"
+import type { TemperatureUnit } from "../entities/TemperatureUnit"
 
 export function formatTemperature(
   temperature: number,
