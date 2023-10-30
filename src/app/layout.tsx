@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className="dark">{children}</body>
+      <body className="dark">
+        <main>{children}</main>
+      </body>
     </html>
   )
 }
