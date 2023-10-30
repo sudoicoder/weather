@@ -1,8 +1,8 @@
 import * as zod from "zod"
 
 export const GeocoordinatesSchema = zod.object({
-  latitude: zod.number(),
-  longitude: zod.number(),
+  latitude: zod.coerce.number(),
+  longitude: zod.coerce.number(),
 })
 
 export type Geocoordinates = zod.infer<typeof GeocoordinatesSchema>
