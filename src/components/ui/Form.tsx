@@ -7,9 +7,15 @@ import { Label as BaseLabel } from "@/components/ui/Label"
 
 import { cn } from "@/utilities/shadcn"
 
-export const Form = (props: React.ComponentProps<typeof FormProvider>) => (
-  <FormProvider {...props} />
-)
+export const Form = <
+  TFieldValues extends FieldValues,
+  TContext = any,
+  TTransformedValues extends FieldValues | undefined = undefined,
+>(
+  props: React.ComponentProps<
+    typeof FormProvider<TFieldValues, TContext, TTransformedValues>
+  >
+) => <FormProvider {...props} />
 
 type FieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
