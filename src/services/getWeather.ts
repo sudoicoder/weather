@@ -51,7 +51,7 @@ interface WeatherApiResponse {
   }
 }
 
-export async function getWeather(): Promise<Weather> {
+export default async function getWeather(): Promise<Weather> {
   const url = getUrl({ days: 7, latitude: 11.9416, longitude: 79.8083 })
   const res = (await fetch(url).then(r => r.json())) as WeatherApiResponse
   return {
