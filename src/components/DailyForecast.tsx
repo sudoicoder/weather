@@ -9,7 +9,7 @@ import Progress from "./ui/Progress"
 
 export default function DailyForecast({ dailyForecasts }: DailyForecastProps) {
   return (
-    <Card.Container className="flex flex-col gap-5 p-5 border rounded">
+    <Card className="flex flex-col gap-5 p-5 border rounded">
       {dailyForecasts.map(forecast => (
         <div
           key={forecast.date}
@@ -28,7 +28,7 @@ export default function DailyForecast({ dailyForecasts }: DailyForecastProps) {
           </div>
         </div>
       ))}
-    </Card.Container>
+    </Card>
   )
 }
 

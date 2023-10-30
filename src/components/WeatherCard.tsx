@@ -8,7 +8,7 @@ import Card from "./ui/Card"
 
 export default function WeatherCard({ currentWeather }: WeatherCardProps) {
   return (
-    <Card.Container>
+    <Card>
       <Card.Content className="flex flex-col items-center p-5 gap-2">
         <div className="text-3xl font-bold">
           {formatTemperature(currentWeather.currentTemperature)}
@@ -21,7 +21,7 @@ export default function WeatherCard({ currentWeather }: WeatherCardProps) {
         />
         <div>{formatTemperature(currentWeather.currentTemperature)}</div>
       </Card.Content>
-    </Card.Container>
+    </Card>
   )
 }
 

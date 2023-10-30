@@ -10,7 +10,7 @@ export default function HourlyForecast({
   hourlyForecasts,
 }: HourlyForecastProps) {
   return (
-    <Card.Container className="h-fit flex gap-5 p-5 border rounded overflow-x-scroll">
+    <Card className="h-fit flex gap-5 p-5 border rounded overflow-x-scroll">
       {hourlyForecasts.map(forecast => (
         <div
           key={forecast.time}
@@ -26,7 +26,7 @@ export default function HourlyForecast({
           <div>{formatTemperature(forecast.predictedTemperature)}</div>
         </div>
       ))}
-    </Card.Container>
+    </Card>
   )
 }
 
