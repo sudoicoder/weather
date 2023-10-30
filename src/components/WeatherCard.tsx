@@ -4,9 +4,9 @@ import type { Weather } from "@/entities/Weather"
 
 import { formatTemperature } from "@/utilities/formatTemperature"
 
-import Card from "./ui/Card"
+import { Card } from "./ui/Card"
 
-export default function WeatherCard({ currentWeather }: WeatherCardProps) {
+export function WeatherCard({ currentWeather }: WeatherCardProps) {
   return (
     <Card>
       <Card.Content className="flex flex-col items-center p-5 gap-2">

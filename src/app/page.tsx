@@ -1,6 +1,6 @@
-import DailyForecast from "@/components/DailyForecast"
-import HourlyForecast from "@/components/HourlyForecast"
-import WeatherCard from "@/components/WeatherCard"
+import { DailyForecast } from "@/components/DailyForecast"
+import { HourlyForecast } from "@/components/HourlyForecast"
+import { WeatherCard } from "@/components/WeatherCard"
 
 import { getWeather } from "@/services/getWeather"
 

@@ -3,11 +3,11 @@ import type { ControllerProps, FieldPath, FieldValues } from "react-hook-form"
 import { Controller, FormProvider, useFormContext } from "react-hook-form"
 import { Slot } from "@radix-ui/react-slot"
 
-import BaseLabel from "@/components/ui/Label"
+import { Label as BaseLabel } from "@/components/ui/Label"
 
 import { cn } from "@/utilities/shadcn"
 
-const Form = (props: React.ComponentProps<typeof FormProvider>) => (
+export const Form = (props: React.ComponentProps<typeof FormProvider>) => (
   <FormProvider {...props} />
 )
 
@@ -156,5 +156,3 @@ Form.Field = Field
 Form.Item = Item
 Form.Label = Label
 Form.Message = Message
-
-export default Form

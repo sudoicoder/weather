@@ -4,10 +4,10 @@ import type { Weather } from "@/entities/Weather"
 
 import { formatTemperature } from "@/utilities/formatTemperature"
 
-import Card from "./ui/Card"
-import Progress from "./ui/Progress"
+import { Card } from "./ui/Card"
+import { Progress } from "./ui/Progress"
 
-export default function DailyForecast({ dailyForecasts }: DailyForecastProps) {
+export function DailyForecast({ dailyForecasts }: DailyForecastProps) {
   return (
     <Card className="flex flex-col gap-5 p-5 border rounded">
       {dailyForecasts.map(forecast => (

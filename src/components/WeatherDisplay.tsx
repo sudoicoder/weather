@@ -3,11 +3,11 @@ import { useSearchParams } from "next/navigation"
 
 import type { Weather } from "@/entities/Weather"
 
-import DailyForecast from "./DailyForecast"
-import HourlyForecast from "./HourlyForecast"
-import WeatherCard from "./WeatherCard"
+import { DailyForecast } from "./DailyForecast"
+import { HourlyForecast } from "./HourlyForecast"
+import { WeatherCard } from "./WeatherCard"
 
-export default function WeatherDisplay({
+export function WeatherDisplay({
   defaultWeather,
 }: {
   defaultWeather: Weather

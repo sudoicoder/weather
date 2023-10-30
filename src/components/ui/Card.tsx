@@ -2,7 +2,7 @@ import { forwardRef } from "react"
 
 import { cn } from "@/utilities/shadcn"
 
-const Card = ({ className, ...props }: React.ComponentProps<"div">) => (
+export const Card = ({ className, ...props }: React.ComponentProps<"div">) => (
   <div
     className={cn(
       "rounded-lg border bg-card text-card-foreground shadow-sm",
@@ -79,5 +79,3 @@ Card.Title = Title
 Card.Description = Description
 Card.Content = Content
 Card.Footer = Footer
-
-export default Card

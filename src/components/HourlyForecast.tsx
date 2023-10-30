@@ -4,11 +4,9 @@ import type { Weather } from "@/entities/Weather"
 
 import { formatTemperature } from "@/utilities/formatTemperature"
 
-import Card from "./ui/Card"
+import { Card } from "./ui/Card"
 
-export default function HourlyForecast({
-  hourlyForecasts,
-}: HourlyForecastProps) {
+export function HourlyForecast({ hourlyForecasts }: HourlyForecastProps) {
   return (
     <Card className="h-fit flex gap-5 p-5 border rounded overflow-x-scroll">
       {hourlyForecasts.map(forecast => (
