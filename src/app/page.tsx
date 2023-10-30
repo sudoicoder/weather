@@ -2,7 +2,7 @@ import DailyForecast from "@/components/DailyForecast"
 import HourlyForecast from "@/components/HourlyForecast"
 import WeatherCard from "@/components/WeatherCard"
 
-import getWeather from "@/services/getWeather"
+import { getWeather } from "@/services/getWeather"
 
 export default async function Home() {
   const weather = await getWeather({ latitude: 11.9416, longitude: 79.8083 })

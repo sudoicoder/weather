@@ -7,6 +7,6 @@ const envSchema = z.object({
 
 const env = envSchema.parse(process.env)
 
-export default function getEnv(key: keyof z.infer<typeof envSchema>) {
+export function getEnv(key: keyof z.infer<typeof envSchema>) {
   return env[key]
 }

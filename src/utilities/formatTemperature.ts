@@ -1,6 +1,6 @@
 export type TemperatureUnit = "celsius" | "fahrenheit"
 
-export default function formatTemperature(
+export function formatTemperature(
   temperature: number,
   temperatureUnit: TemperatureUnit = "celsius"
 ) {

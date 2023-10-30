@@ -1,7 +1,7 @@
 import type { Geocoordinates } from "@/entities/Geocoordinates"
 import type { Weather } from "@/entities/Weather"
 
-import getEnv from "@/utilities/getEnv"
+import { getEnv } from "@/utilities/getEnv"
 
 function createForecastUrl({
   days,
@@ -55,7 +55,7 @@ interface WeatherApiResponse {
   }
 }
 
-export default async function getWeather(
+export async function getWeather(
   geocoordinates: Geocoordinates
 ): Promise<Weather> {
   const url = createForecastUrl({ days: 7, ...geocoordinates })

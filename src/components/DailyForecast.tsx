@@ -2,7 +2,7 @@ import Image from "next/image"
 
 import type { Weather } from "@/entities/Weather"
 
-import formatTemperature from "@/utilities/formatTemperature"
+import { formatTemperature } from "@/utilities/formatTemperature"
 
 import Card from "./ui/Card"
 import Progress from "./ui/Progress"

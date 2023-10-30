@@ -1,6 +1,6 @@
 import { forwardRef } from "react"
 
-import cn from "@/utilities/shadcn"
+import { cn } from "@/utilities/shadcn"
 
 const Card = ({ className, ...props }: React.ComponentProps<"div">) => (
   <div

@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 
 import BaseLabel from "@/components/ui/Label"
 
-import cn from "@/utilities/shadcn"
+import { cn } from "@/utilities/shadcn"
 
 const Form = (props: React.ComponentProps<typeof FormProvider>) => (
   <FormProvider {...props} />
