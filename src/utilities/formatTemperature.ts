@@ -1,5 +1,3 @@
-import assertUnreachable from "./assertUnreachable"
-
 export type TemperatureUnit = "celsius" | "fahrenheit"
 
 export default function formatTemperature(
@@ -17,7 +15,5 @@ function getTemperatureUnitSymbol(temperatureUnit: TemperatureUnit) {
       return "\u2103"
     case "fahrenheit":
       return "\u2109"
-    default:
-      assertUnreachable(temperatureUnit)
   }
 }
