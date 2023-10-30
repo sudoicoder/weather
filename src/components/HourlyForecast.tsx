@@ -10,11 +10,11 @@ export default function HourlyForecast({
   hourlyForecasts,
 }: HourlyForecastProps) {
   return (
-    <Card.Container className="flex flex-col gap-5 p-5 border rounded">
+    <Card.Container className="h-fit flex gap-5 p-5 border rounded overflow-x-scroll">
       {hourlyForecasts.map(forecast => (
         <div
           key={forecast.time}
-          className="flex items-center gap-3"
+          className="flex flex-col items-center gap-3"
         >
           <Image
             width={48}
